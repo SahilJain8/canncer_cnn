@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Lung Cancer</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+<style>
+     /* Add some padding to the form */
+     form {
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #aaa;
+        }
+
+      
+        label {
+            display: inline-block;
+            width: 150px;
+            color: black;
+            text-align: right;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        
+        
+        input[type="text"] {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+       
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="breast_cancer">Breast Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="lung_cancer">Lung Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="leukemia_Classficationl">leukemia Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-4 mb-lg-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    {% if data %}
+                    <h1>The person has lung cancer</h1>
+                    <h1>The cancer stage is {{stage}}</h1>
+                    <p style="text-align: left;">Lung cancer is treated in several ways, depending on the type of lung cancer and how far it has spread. People with non-small cell lung cancer can be treated with surgery, chemotherapy, radiation therapy, targeted therapy, or a combination of these treatments. People with small cell lung cancer are usually treated with radiation therapy and chemotherapy.
+                    </p>
+                    <ol style="text-align: left;">
+                        
+                       <li>Surgery. An operation where doctors cut out cancer tissue.</li> 
+                       <li>Chemotherapy. Using special medicines to shrink or kill the cancer. The drugs can be pills you take or medicines given in your veins, or sometimes both.</li> 
+                        <li> therapy. Using high-energy rays (similar to X-rays) to kill the cancer.</li>
+                       <li>Targeted therapy. Using drugs to block the growth and spread of cancer cells. The drugs can be pills you take or medicines given in your veins. You will get tests to see if targeted therapy is right for your cancer type before this treatment is used.</li> 
+                   
+                </ol>
+                {%elif data_no%}
+                <h1 style="text-align: center ;size: 100px;">Person does not have cancer</h1> 
+   
+                    {%else%}
+                    
+                    <img class="rounded img-fluid shadow" src="https://media.istockphoto.com/id/1318472979/vector/doctor-and-patient-checkup-appointment-concept-vector-flat-medical-people-illustration-male.jpg?s=612x612&w=0&k=20&c=NikCeAnN7SINgN0aS_1s8c4DYTB9YgxUgvfBZO4QxcI=" alt=" "></div>
+                    <form action="/lung_cancer" enctype="multipart/form-data" method="POST">
+                        {% for item in fields %}
+                          <label>{{ item }}</label>
+                        <label>
+                            <input type="text" name="{{ item }}">
+                        </label><br>
+                        {% endfor %}
+                        <input type="submit" value="Submit">
+                      </form>
+                      {%endif%}
+
+
+                </div>
+            </div>
+      
+    <footer class="bg-dark"></footer>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bold-and-dark.js"></script>
+  
+</body>
+
+</html>

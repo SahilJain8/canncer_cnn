@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>leukemia Classfication</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="breast_cancer">Breast Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lung_cancer">Lung Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="leukemia_Classficationl">leukemia Classfication </a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts">Contacts</a></li>
+                
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <div class="container py-5">
+{%if data %}
+{% for key, value in data.items() %}
+		<p>{{ key }}: {{ value }}</p>
+	{% endfor %}
+    Common treatments used to fight leukemia include:
+<ol>
+   <li>Chemotherapy. Chemotherapy is the major form of treatment for leukemia. This drug treatment uses chemicals to kill leukemia cells. 
+    
+   Depending on the type of leukemia you have, you may receive a single drug or a combination of drugs. These drugs may come in a pill form, or they may be injected directly into a vein.</li> 
+    
+  <li>Targeted therapy. Targeted drug treatments focus on specific abnormalities present within cancer cells. By blocking these abnormalities, targeted drug treatments can cause cancer cells to die. Your leukemia cells will be tested to see if targeted therapy may be helpful for you.</li> 
+
+   <li>Radiation therapy. Radiation therapy uses X-rays or other high-energy beams to damage leukemia cells and stop their growth. During radiation therapy, you lie on a table while a large machine moves around you, directing the radiation to precise points on your body.
+    
+   You may receive radiation in one specific area of your body where there is a collection of leukemia cells, or you may receive radiation over your whole body. Radiation therapy may be used to prepare for a bone marrow transplant.</li>
+    
+    <li>Bone marrow transplant. A bone marrow transplant, also called a stem cell transplant, helps reestablish healthy stem cells by replacing unhealthy bone marrow with leukemia-free stem cells that will regenerate healthy bone marrow.
+    
+   Prior to a bone marrow transplant, you receive very high doses of chemotherapy or radiation therapy to destroy your leukemia-producing bone marrow. Then you receive an infusion of blood-forming stem cells that help rebuild your bone marrow.
+    
+    You may receive stem cells from a donor or you may be able to use your own stem cells</li>.
+    
+   <li>Immunotherapy. Immunotherapy uses your immune system to fight cancer. Your body's disease-fighting immune system may not attack your cancer because the cancer cells produce proteins that help them hide from the immune system cells. Immunotherapy works by interfering with that process.
+   Engineering immune cells to fight leukemia. A specialized treatment called chimeric antigen receptor (CAR)-T cell therapy takes your body's germ-fighting T cells, engineers them to fight cancer and infuses them back into your body. CAR-T cell therapy might be an option for certain types of leukemia.</li> 
+   <li>Clinical trials. Clinical trials are experiments to test new cancer treatments and new ways of using existing treatments. While clinical trials give you or your child a chance to try the latest cancer treatment, treatment benefits and risks may be uncertain. Discuss the benefits and risks of clinical trials with your doctor. </li> 
+   
+</ol>
+
+
+{%elif data_no%}
+
+
+ 
+        
+<h1 style="text-align: center ;size: 100px;">Person does not have cancer</h1> 
+
+{%else%}
+            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                <div class="col mb-5">
+                    
+                    
+                    <img class="rounded img-fluid shadow" src="https://media.istockphoto.com/id/1318472979/vector/doctor-and-patient-checkup-appointment-concept-vector-flat-medical-people-illustration-male.jpg?s=612x612&w=0&k=20&c=NikCeAnN7SINgN0aS_1s8c4DYTB9YgxUgvfBZO4QxcI="></div>
+                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
+                    <div>
+                        <h5 class="fw-bold">Upload the image;</h5>
+                        <p class="text-muted mb-4">
+                            <form action="/leukemia" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="image" />
+
+
+                                <button class="btn btn-primary shadow" type="submit">Submit</button>
+                        </form></p>
+                    </div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark"></footer>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bold-and-dark.js"></script>
+   
+</body>
+
+</html>

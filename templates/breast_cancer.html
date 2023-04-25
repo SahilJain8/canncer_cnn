@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>breast cancer</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="breast_cancer">Breast Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lung_cancer">Lung Cancer Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="leukemia_Classficationl">leukemia Classfication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts">Contacts</a></li>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <div class="container py-5">
+            
+{%if data %}
+{% for key, value in data.items() %}
+		<p>{{ key }}: {{ value }}</p>
+	{% endfor %}
+    <ol>
+    <li>Chemotherapy</li> 
+    <li>Hormone therapy (tamoxifen, an aromatase inhibitor
+        <li>Targeted drugs, such as trastuzumab (Herceptin), pertuzumab (Perjeta), or abemaciclib (Verzenio)</li> 
+            <li>Immunotherapy</li> 
+   
+</ol>
+
+
+{%elif  data_no%}
+
+        
+<h1 style="text-align: center ;size: 100px;">Person does not have cancer</h1> 
+   
+{%else%}
+            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                <div class="col mb-5">
+                    
+                    
+                    <img class="rounded img-fluid shadow" src="https://static.vecteezy.com/system/resources/previews/008/652/584/original/breast-cancer-awareness-month-background-cartoon-illustration-with-ribbon-pink-and-woman-for-disease-prevention-campaign-or-healthcare-vector.jpg"></div>
+                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
+                    <div>
+                        <h5 class="fw-bold">Upload the image;</h5>
+                        <p class="text-muted mb-4">
+                            <form action="/pred" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="image" />
+
+
+                                <button class="btn btn-primary shadow" type="submit">Submit</button>
+                        </form></p>
+                    </div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark"></footer>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bold-and-dark.js"></script>
+
+  
+        
+     
+</body>
+
+</html>
