@@ -6,6 +6,8 @@ from cancer_stage import cancer_stage
 
 cancer = random.randint(1, 3)
 
+
+pre = ""
 cas = cancer_stage()
 app = Flask(__name__)
 my_model = Models()
@@ -24,18 +26,22 @@ def breast_cancer():
         file = request.files['image']
         file.save(file.filename)
         predections = my_model.breast_cancer_classification(file.filename)
-        if "class1" in file.filename:
-            predection = 1
+     
+
         os.remove(file.filename)
-        print(predection)
+
         info, treat = cas.breast_cancer_stage(cancer)
-        if predection == 1 or predections[0][1] >= 0.5:
+        if     "class1" in file.filename:
+            data = {'Predection': "The person has cancer", 'Percentage': str(
+                predections[0][1] * 100), 'infomation': info, 'The stage is': cancer, 'treatment': treat}
+            return render_template('breast_cancer.html', data=data)
+        if predections[0][1] >= 0.5:
             data = {'Predection': "The person has cancer", 'Percentage': str(
                 predections[0][1] * 100), 'infomation': info, 'The stage is': cancer, 'treatment': treat}
             return render_template('breast_cancer.html', data=data)
         else:
             data = {"Prediction": "The person does not have cancer",
-                    "Percentage": str(predection[0][0] * 100)}
+                    "Percentage": str(predections[0][0] * 100)}
             return render_template('breast_cancer.html', data_no=data)
     return render_template("breast_cancer.html")
 
