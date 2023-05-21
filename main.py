@@ -75,7 +75,8 @@ def lung_cancer():
     if request.method == 'POST':
         data = {}
         for field in fields:
-            data[field] = request.form.get(field)
+            value = request.form.get(field)
+            data[field] = int(value) if value is not None else 0
 
         pred = my_model.lung_cancer_predection(data.values())
 

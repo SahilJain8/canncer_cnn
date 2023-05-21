@@ -9,52 +9,47 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 <style>
-     /* Add some padding to the form */
-     form {
-            padding: 20px;
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #aaa;
-        }
+ /* Form container */
+/* Form container */
+/* Form container */
+form {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #aaa;
+}
 
-      
-        label {
-            display: inline-block;
-            width: 150px;
-            color: black;
-            text-align: right;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+label {
+  display: inline-block;
+  width: 150px;
+  color: black;
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-        
-        
-        input[type="text"] {
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            width: 100%;
-        }
+input[type="radio"] {
+  margin-right: 5px;
+}
 
-       
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 3px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
 
 
-        input[type="submit"]:hover {
-            background-color: #3e8e41;
-        }
+
 </style>
 </head>
 
@@ -94,21 +89,25 @@
    
                     {%else%}
                     
+                    
                     <img class="rounded img-fluid shadow" src="https://media.istockphoto.com/id/1318472979/vector/doctor-and-patient-checkup-appointment-concept-vector-flat-medical-people-illustration-male.jpg?s=612x612&w=0&k=20&c=NikCeAnN7SINgN0aS_1s8c4DYTB9YgxUgvfBZO4QxcI=" alt=" "></div>
-                    <form action="/lung_cancer" enctype="multipart/form-data" method="POST">
-                        {% for item in fields %}
-                          <label>{{ item }}</label>
-                        <label>
-                            <input type="text" name="{{ item }}">
-                        </label><br>
-                        {% endfor %}
-                        <input type="submit" value="Submit">
-                      </form>
-                      {%endif%}
-
-
                 </div>
             </div>
+                    <form action="/lung_cancer" enctype="multipart/form-data" method="POST" class="form-container">
+                        {% for item in fields %}
+                        <label>{{ item }}</label><br>
+    <label>
+      <input type="radio" name="{{ item }}" value="1"> Yes
+    </label>
+    <label>
+      <input type="radio" name="{{ item }}" value="0"> No
+    </label><br>
+  {% endfor %}
+  <input type="submit" value="Submit">
+                      {%endif%}
+
+</form>
+           
       
     <footer class="bg-dark"></footer>
     <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
