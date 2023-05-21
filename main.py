@@ -68,6 +68,10 @@ def leukemia():
 
 @app.route("/lung_cancer", methods=['GET', 'POST'])
 def lung_cancer():
+    fields_1 = [ 'AGE', 'SMOKING', 'YELLOW_FINGERS', 'ANXIETY',
+              'PEER_PRESSURE', 'CHRONIC DISEASE', 'FATIGUE ', 'ALLERGY ', 'WHEEZING',
+              'ALCOHOL CONSUMING', 'COUGHING', 'SHORTNESS OF BREATH',
+              'SWALLOWING DIFFICULTY', 'CHEST PAIN']
     fields = ['GENDER', 'AGE', 'SMOKING', 'YELLOW_FINGERS', 'ANXIETY',
               'PEER_PRESSURE', 'CHRONIC DISEASE', 'FATIGUE ', 'ALLERGY ', 'WHEEZING',
               'ALCOHOL CONSUMING', 'COUGHING', 'SHORTNESS OF BREATH',
@@ -87,7 +91,7 @@ def lung_cancer():
         else:
             txt = "Cancer-free"
             return render_template('lung_cancer.html', data_no=txt)
-    return render_template('lung_cancer.html', fields=fields)
+    return render_template('lung_cancer.html', fields=fields_1)
 
 
 @app.route("/contacts")
